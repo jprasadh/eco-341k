@@ -1,0 +1,123 @@
+---------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:\Users\jgp958\Downloads\HW1\Jai_Prasadh_HW1.log
+  log type:  text
+ opened on:  27 Jan 2018, 13:44:50
+
+. 
+. * Jai Prasadh
+. * ECO 341K
+. * HW 1
+. * Written 2018-01-27
+. di "Executed $S_DATE at $S_TIME"
+Executed 27 Jan 2018 at 13:44:50
+
+. 
+. * Wooldridge C1.2
+. use BWGHT.DTA
+
+. 
+. * (i)
+. * (ii)
+. * (iii)
+. sum cigs
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+        cigs |      1,388    2.087176    5.972688          0         50
+
+. sum cigs if cigs > 0
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+        cigs |        212    13.66509    8.690907          1         50
+
+. 
+. * (iv)
+. sum fatheduc
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+    fatheduc |      1,192    13.18624    2.745985          1         18
+
+. 
+. * (v)
+. sum faminc
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+      faminc |      1,388    29.02666    18.73928         .5         65
+
+. 
+. * (vi)
+. sum bwght if cigs == 0
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+       bwght |      1,176    120.0612    20.26849         23        271
+
+. sum bwght if cigs > 0
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+       bwght |        212    111.1462    19.18141         50        159
+
+. display 120.0612 - 111.1462
+8.915
+
+. 
+. * (vii)
+. corr faminc motheduc cigs bwght
+(obs=1,387)
+
+             |   faminc motheduc     cigs    bwght
+-------------+------------------------------------
+      faminc |   1.0000
+    motheduc |   0.4559   1.0000
+        cigs |  -0.1734  -0.2139   1.0000
+       bwght |   0.1085   0.0691  -0.1509   1.0000
+
+
+. 
+. * (viii)
+. * Answer without looking at output!
+. *
+. *
+. *
+. *
+. *
+. *
+. *
+. *
+. *
+. * Now check
+. sum bwghtlbs if cigs == 0
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+    bwghtlbs |      1,176    7.503827     1.26678     1.4375    16.9375
+
+. sum bwghtlbs if cigs > 0
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+    bwghtlbs |        212    6.946639    1.198838      3.125     9.9375
+
+. corr faminc motheduc cigs bwghtlbs
+(obs=1,387)
+
+             |   faminc motheduc     cigs bwghtlbs
+-------------+------------------------------------
+      faminc |   1.0000
+    motheduc |   0.4559   1.0000
+        cigs |  -0.1734  -0.2139   1.0000
+    bwghtlbs |   0.1085   0.0691  -0.1509   1.0000
+
+
+. 
+. log close
+      name:  <unnamed>
+       log:  C:\Users\jgp958\Downloads\HW1\Jai_Prasadh_HW1.log
+  log type:  text
+ closed on:  27 Jan 2018, 13:44:50
+---------------------------------------------------------------------------------------------------------------------------------------------
