@@ -1,0 +1,100 @@
+---------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:\Users\jgp958\Downloads\HW3\Jai_Prasadh_HW3.log
+  log type:  text
+ opened on:  11 Feb 2018, 21:04:27
+
+. 
+. * Jai Prasadh
+. * ECO 341K
+. * HW 3
+. * Written 2018-02-11
+. di "Executed $S_DATE at $S_TIME"
+Executed 11 Feb 2018 at 21:04:27
+
+. 
+. * Wooldridge C2.6
+. use MEAP93.DTA, clear
+
+. 
+. * (i)
+. * (ii)
+. * (iii)
+. reg math10 lexpend
+
+      Source |       SS           df       MS      Number of obs   =       408
+-------------+----------------------------------   F(1, 406)       =     12.41
+       Model |  1329.42517         1  1329.42517   Prob > F        =    0.0005
+    Residual |  43487.7553       406  107.112698   R-squared       =    0.0297
+-------------+----------------------------------   Adj R-squared   =    0.0273
+       Total |  44817.1805       407  110.115923   Root MSE        =     10.35
+
+------------------------------------------------------------------------------
+      math10 |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     lexpend |   11.16439   3.169011     3.52   0.000     4.934677    17.39411
+       _cons |   -69.3411   26.53013    -2.61   0.009    -121.4947   -17.18753
+------------------------------------------------------------------------------
+
+. 
+. * (iv)
+. di 11.164 * 10
+111.64
+
+. 
+. * (v)
+. * (vi)
+. scatter math10 lexpend || lfit math10 lexpend
+
+. graph save graph1, replace
+(file graph1.gph saved)
+
+. 
+. * (vii)
+. quietly reg math10 lexpend
+
+. predict math10_fitted
+(option xb assumed; fitted values)
+
+. scatter math10_fitted expend
+
+. graph save graph2, replace
+(file graph2.gph saved)
+
+. 
+. * (viii)
+. gen math10dec = math10 / 100
+
+. *
+. *
+. *Do independently first
+. *
+. *
+. reg math10dec lexpend
+
+      Source |       SS           df       MS      Number of obs   =       408
+-------------+----------------------------------   F(1, 406)       =     12.41
+       Model |  .132942523         1  .132942523   Prob > F        =    0.0005
+    Residual |  4.34877561       406   .01071127   R-squared       =    0.0297
+-------------+----------------------------------   Adj R-squared   =    0.0273
+       Total |  4.48171813       407  .011011592   Root MSE        =     .1035
+
+------------------------------------------------------------------------------
+   math10dec |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     lexpend |    .111644   .0316901     3.52   0.000     .0493468    .1739411
+       _cons |   -.693411   .2653013    -2.61   0.009    -1.214947   -.1718753
+------------------------------------------------------------------------------
+
+. 
+. 
+. save MEAP93_modified.DTA, replace
+file MEAP93_modified.DTA saved
+
+. 
+. log close
+      name:  <unnamed>
+       log:  C:\Users\jgp958\Downloads\HW3\Jai_Prasadh_HW3.log
+  log type:  text
+ closed on:  11 Feb 2018, 21:04:28
+---------------------------------------------------------------------------------------------------------------------------------------------

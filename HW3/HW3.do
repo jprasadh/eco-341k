@@ -1,4 +1,4 @@
-*log using Jai_Prasadh_HW3.log
+log using Jai_Prasadh_HW3.log
 
 * Jai Prasadh
 * ECO 341K
@@ -40,4 +40,4 @@ reg math10dec lexpend
 
 save MEAP93_modified.DTA, replace
 
-*log close
+log close
